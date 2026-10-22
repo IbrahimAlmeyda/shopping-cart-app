@@ -1,137 +1,116 @@
-# Shopping Cart App TypeScript
+# Shopping Cart App
 
-Una aplicación de carrito de compras moderna construida con React, TypeScript y Tailwind CSS.
+<div align="center">
+  <img src="./src/assets/images/desktop-preview.webp" alt="Shopping Cart App Preview" width="600">
+  <p>Una aplicación moderna de carrito de compras con React, TypeScript y Tailwind CSS</p>
 
-![Versión](https://img.shields.io/badge/versión-0.0.0-blue)
-![React](https://img.shields.io/badge/react-19.0.0-61DAFB)
-![TypeScript](https://img.shields.io/badge/typescript-5.7.2-3178C6)
-![Tailwind CSS](https://img.shields.io/badge/tailwind-4.0.15-38B2AC)
+  ![React](https://img.shields.io/badge/react-19.0.0-61DAFB)
+  ![TypeScript](https://img.shields.io/badge/typescript-5.7.2-3178C6)
+  ![Tailwind CSS](https://img.shields.io/badge/tailwind-4.0.15-38B2AC)
+  ![Vite](https://img.shields.io/badge/vite-6.2.0-646CFF)
+</div>
 
-## 🖼️ Vista Previa
+## Descripción
+Shopping Cart App es una aplicación web que permite explorar un catálogo de productos, filtrarlos por categoría y gestionar un carrito de compras. Con una interfaz minimalista y responsiva, incluye modo claro/oscuro y un estado global manejado con Context API y reducers.
 
-![Vista de productos](./src/assets/images/desktop-preview.webp)
+🔗 **Demo en vivo:** [shopping-cart-app-weld.vercel.app](https://shopping-cart-app-weld.vercel.app/)
 
-### 🔗 Demo en vivo
+## Características
+- 🛒 Gestión completa del carrito: añadir, eliminar, incrementar y decrementar productos
+- 🔍 Filtrado de productos por categoría y otras propiedades
+- 🌗 Tema claro/oscuro con soporte para las preferencias del sistema
+- ⭐ Valoraciones de productos con estrellas
+- 🎨 Interfaz moderna, responsiva y minimalista
+- 🧩 Componentes reutilizables (Dropdown, StarRating, tarjetas y más)
+- 📝 Código totalmente tipado con TypeScript
 
-[Ver Demo](https://shopping-cart-app-weld.vercel.app/) - Prueba la aplicación en funcionamiento
+## Tecnologías Utilizadas
+- ⚛️ **React 19** - Para la interfaz de usuario
+- 📝 **TypeScript** - Para tipado estático y mejor mantenimiento del código
+- 💅 **Tailwind CSS 4** - Para estilos modernos y responsivos
+- 🔄 **Context API + useReducer** - Para la gestión del estado global
+- ⚡ **Vite** - Para el desarrollo y empaquetado rápido
+- 🎯 **React Icons** - Para los iconos de la interfaz
 
-## 📋 Características
-
-- **Gestión del carrito de compras**: Añadir, eliminar, incrementar y decrementar productos
-- **Filtrado de productos**: Filtros por categoría y otras propiedades
-- **Tema claro/oscuro**: Soporte completo para modo oscuro
-- **Interfaz moderna**: Diseño responsivo y minimalista
-- **Componentes reutilizables**: Dropdown, botones, tarjetas y más
-- **Código totalmente tipado**: Escrito en TypeScript para mayor robustez
-
-## 🚀 Tecnologías
-
-- **React 19**: Biblioteca UI moderna con hooks
-- **TypeScript**: Soporte de tipos estático
-- **Tailwind CSS 4**: Framework de CSS utility-first
-- **Context API + Reducers**: Gestión del estado de la aplicación
-- **Vite**: Empaquetador de aplicaciones rápido
-- **React Icons**: Iconos de alta calidad
-
-## 🛠️ Estructura del proyecto
-
+## Estructura del Proyecto
 ```
 src/
-├── components/       # Componentes de la interfaz
-│   ├── header/       # Componentes del encabezado (Header, CartButton, etc.)
-│   ├── main/         # Componentes principales (productos, filtros, etc.)
+├── assets/           # Imágenes y recursos estáticos
+├── components/       # Componentes de React organizados por funcionalidad
+│   ├── header/       # Header, Logo, CartButton, CartDrawer, ThemeButton
+│   ├── main/         # Componentes principales
+│   │   └── products/ # ProductList, ProductCard, ProducFilter
 │   ├── footer/       # Componentes del pie de página
-│   └── ui/           # Componentes reutilizables (Dropdown, Button, etc.)
+│   └── ui/           # Componentes reutilizables (Dropdown, StarRating)
 ├── context/          # Contextos de React
-│   ├── cart/         # Contexto del carrito de compras
-│   └── filter/       # Contexto para filtrado de productos
+│   ├── cart/         # CartContext, CartProvider y useCart
+│   └── filter/       # FilterContext, FilterProvider y useProductFilter
+├── hooks/            # Custom hooks
+│   └── useTheme.tsx  # Hook para gestionar el tema claro/oscuro
+├── mocks/            # Datos de ejemplo (productsApiResults.json)
 ├── reducers/         # Reducers para gestión del estado
+│   └── cartReducer.ts
 ├── types/            # Definiciones de tipos TypeScript
-├── hooks/            # Hooks personalizados
-├── utils/            # Funciones utilitarias
-└── mocks/            # Datos de ejemplo
+│   ├── cart.types.ts
+│   └── types.ts
+└── utils/            # Funciones utilitarias
+    └── utils.ts
 ```
 
-## 🏁 Comenzando
+## Instalación y Uso
+### 1️⃣ Clonar el repositorio
+```bash
+git clone https://github.com/IbrahimAlmeyda/shopping-cart-app.git
+cd shopping-cart-app
+```
 
-### Prerrequisitos
+### 2️⃣ Instalar dependencias
+```bash
+pnpm install
+```
+> 📝 **Nota**: El proyecto usa **pnpm** (`pnpm-lock.yaml`), pero también puedes usar `npm install`. Se requiere Node.js v18 o superior.
 
-- Node.js (v18 o superior)
-- pnpm (recomendado) o npm
+### 3️⃣ Ejecutar en desarrollo
+```bash
+pnpm dev
+```
+La aplicación estará disponible en `http://localhost:5173/`
 
-### Instalación
+### 4️⃣ Otros comandos
+```bash
+pnpm lint      # Revisa el código con ESLint
+pnpm build     # Comprueba tipos y genera el build de producción
+pnpm preview   # Sirve el build de producción localmente
+```
 
-1. Clona el repositorio
+## Guía de Uso
+- **Añadir productos**: haz clic en "Añadir al carrito"; si el producto ya está, su cantidad se incrementa
+- **Gestionar el carrito**: abre el icono del carrito, ajusta cantidades con "+" y "-", elimina productos con la papelera o vacía todo el carrito
+- **Filtrar productos**: usa el dropdown de categorías para ver solo el tipo de producto que buscas
+- **Cambiar el tema**: usa el botón de tema del encabezado para alternar entre modo claro y oscuro
 
-   ```bash
-   git clone https://github.com/tu-usuario/shopping-cart-app.git
-   cd shopping-cart-app
-   ```
+## Buenas Prácticas Implementadas
+- ✅ **Arquitectura modular** - Componentes y lógica organizados por funcionalidad
+- ✅ **Context API + useReducer** - Estado global predecible para el carrito y los filtros
+- ✅ **Custom hooks** - Separación de lógica de negocio y presentación
+- ✅ **TypeScript** - Tipado estricto para prevenir errores en tiempo de desarrollo
+- ✅ **Componentes reutilizables** - Props tipadas y diseño modular para facilitar el mantenimiento
+- ✅ **Tema con variables CSS** - Modo oscuro implementado con variables de tema en `src/index.css`
+- ✅ **Optimización de rendimiento** - Uso de memoización donde aporta valor
 
-2. Instala las dependencias
+## Mejoras Futuras
+- 💳 **Checkout** - Flujo de pago y resumen de compra
+- 💾 **Persistencia del carrito** - Guardar el carrito en localStorage
+- 🌐 **API real** - Reemplazar los datos mock por un backend
+- 🔍 **Búsqueda de productos** - Búsqueda por texto además de los filtros
+- 🧪 **Tests unitarios** - Implementación de pruebas para garantizar calidad
+- 🌍 **Internacionalización** - Soporte para múltiples idiomas
 
-   ```bash
-   pnpm install
-   # o
-   npm install
-   ```
-
-3. Inicia el servidor de desarrollo
-
-   ```bash
-   pnpm dev
-   # o
-   npm run dev
-   ```
-
-4. Abre `http://localhost:5173` en tu navegador
-
-## 📱 Uso
-
-### Añadir productos al carrito
-
-- Haz clic en el botón "Añadir al carrito" en cualquier producto para agregarlo
-- Si el producto ya está en el carrito, su cantidad se incrementará
-
-### Gestionar el carrito
-
-- Haz clic en el icono del carrito en la parte superior para ver su contenido
-- Usa los botones "+" y "-" para ajustar la cantidad
-- Elimina productos con el botón de la papelera
-- Limpia todo el carrito con el botón "Vaciar carrito"
-
-### Filtrar productos
-
-- Usa el dropdown de categorías para filtrar por tipo de producto
-- Más filtros adicionales disponibles según las propiedades de los productos
-
-## 🌈 Personalización
-
-### Tema
-
-- El tema claro/oscuro se cambia automáticamente según las preferencias del sistema
-- Puedes activar manualmente el modo oscuro con el botón de tema en el encabezado
-
-### Estilos
-
-- Los estilos están basados en utilidades de Tailwind y pueden ser personalizados
-- Las variables de tema se definen en `src/index.css`
-
-## 📖 Aprendizajes y decisiones técnicas
-
-- Uso de Context API + useReducer para la gestión del estado global
-- Implementación de tema oscuro con variables CSS y clases condicionales
-- Componentes UI reutilizables con props tipadas
-- Optimización de rendimiento usando memoización
-
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT - mira el archivo LICENSE para detalles
-
-## 🤝 Contribuciones
-
-Las contribuciones son bienvenidas. Por favor, abre un issue primero para discutir qué te gustaría cambiar.
+## Licencia
+Este proyecto está bajo la licencia MIT.
 
 ---
 
-⌨️ con ❤️ por [Ibrahim Almeyda](https://github.com/Ibrahim-003)
+<div align="center">
+  <p>Desarrollado con ❤️ por <a href="https://github.com/IbrahimAlmeyda">Ibrahim Almeyda</a></p>
+</div>
