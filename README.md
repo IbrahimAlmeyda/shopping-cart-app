@@ -13,7 +13,7 @@
 ## Descripción
 Shopping Cart App es una aplicación web que permite explorar un catálogo de productos, filtrarlos por categoría y gestionar un carrito de compras. Con una interfaz minimalista y responsiva, incluye modo claro/oscuro y un estado global manejado con Context API y reducers.
 
-🔗 **Demo en vivo:** [shopping-cart-app-weld.vercel.app](https://shopping-cart-app-weld.vercel.app/)
+🔗 **Demo en vivo:** [shopping-cart-app-weld.vercel.app](https://shopping-cart-app-chi-drab.vercel.app/)
 
 ## Características
 - 🛒 Gestión completa del carrito: añadir, eliminar, incrementar y decrementar productos
